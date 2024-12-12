@@ -65,43 +65,40 @@ This repository provides the template to use for all Terraform Modules.
 - In the **.github/workflows** folder there are plenty of examples that could be leveraged by your project or not, feel free to use it or delete it as needed.
 
 <!-- BEGIN_TF_DOCS -->
-
 ## Requirements
 
-| Name                                                                     | Version  |
-| ------------------------------------------------------------------------ | -------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 1.0.0 |
-| <a name="requirement_aws"></a> [aws](#requirement_aws)                   | >=4.0.0  |
-| <a name="requirement_random"></a> [random](#requirement_random)          | >=3.0.0  |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=4.0.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >=3.0.0 |
 
 ## Providers
 
-| Name                                                      | Version |
-| --------------------------------------------------------- | ------- |
-| <a name="provider_random"></a> [random](#provider_random) | >=3.0.0 |
+No providers.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_backup_lag_vault"></a> [backup\_lag\_vault](#module\_backup\_lag\_vault) | ./modules/backup-lag-vault | n/a |
 
 ## Resources
 
-| Name                                                                                                  | Type     |
-| ----------------------------------------------------------------------------------------------------- | -------- |
-| [random_pet.main](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
+No resources.
 
 ## Inputs
 
-| Name                                                               | Description                                  | Type     | Default | Required |
-| ------------------------------------------------------------------ | -------------------------------------------- | -------- | ------- | :------: |
-| <a name="input_environment"></a> [environment](#input_environment) | The environment where to deploy the solution | `string` | n/a     |   yes    |
-| <a name="input_region"></a> [region](#input_region)                | Region where to deploy the resources         | `string` | n/a     |   yes    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_environment"></a> [environment](#input\_environment) | The environment where to deploy the solution | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | Region where to deploy the resources | `string` | n/a | yes |
+| <a name="input_cyberapp_principals"></a> [cyberapp\_principals](#input\_cyberapp\_principals) | target AWS account IDs for sharing the vault | `list(string)` | `[]` | no |
+| <a name="input_enable_resource_sharing"></a> [enable\_resource\_sharing](#input\_enable\_resource\_sharing) | Whether to enable resource sharing or not | `bool` | `true` | no |
+| <a name="input_max_retention_days"></a> [max\_retention\_days](#input\_max\_retention\_days) | maximum retention days of the backup vault data | `number` | `365` | no |
+| <a name="input_min_retention_days"></a> [min\_retention\_days](#input\_min\_retention\_days) | minimum retention days of the backup vault data | `number` | `30` | no |
 
 ## Outputs
 
-| Name                                                                 | Description                    |
-| -------------------------------------------------------------------- | ------------------------------ |
-| <a name="output_hello_world"></a> [hello_world](#output_hello_world) | Test output used by Terrastest |
-| <a name="output_random_pet"></a> [random_pet](#output_random_pet)    | Dummy non-sensitive output     |
-
+No outputs.
 <!-- END_TF_DOCS -->
