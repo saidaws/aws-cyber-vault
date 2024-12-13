@@ -19,28 +19,28 @@ on:
   #     - "**.tf*"
   #     - ".github/workflows/deploy.yml"
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   deploy:
     name: Progressive Deployment
-    uses: ExxonMobil/awsce-terraform-reusable-workflow/.github/workflows/terraform-reusable.yml@main
+    uses: EMOrg-Prd/awsce-terraform-reusable-workflow/.github/workflows/terraform-reusable.yml@main
     strategy:
       max-parallel: 1
       fail-fast: true
       matrix:
         include:
-          - environment: DEV-US-EAST-2
-            region: us-east-2
-          - environment: TST-US-EAST-2
-            region: us-east-2
-          - environment: PRD-US-EAST-2
-            region: us-east-2
+          - environment: DEV
+          - environment: PRD
     with:
       deploy: true
       tf-version: ${{ vars.TF_VERSION }}
       tf-organization: ${{ vars.TF_ORGANIZATION }}
       tf-hostname: ${{ vars.TF_HOSTNAME }}
-      tf-workspace: FI-AWSCE-${{ vars.APP_NAME }}-${{ matrix.environment }}
-      aws-region: ${{ matrix.region }}
+      tf-workspace: HP-AWS-${{ vars.APP_NAME }}-${{ matrix.environment }}
+      aws-region: "us-east-2"
       environment: ${{ matrix.environment }}
     secrets:
       tf-token: ${{ secrets.TF_TOKEN }}
