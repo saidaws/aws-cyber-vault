@@ -31,11 +31,11 @@ jobs:
       - name: Configure AWS Creds
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ inputs.GH_OIDC_IAM_ROLE }}
-          aws-region: us-east-2
-          role-session-name: xom-role-session
-          role-duration-seconds: 3600
           audience: sts.amazonaws.com
+          aws-region: us-east-2
+          role-to-assume: ${{ inputs.GH_OIDC_IAM_ROLE }}
+          # role-session-name: xom-role-session
+          # role-duration-seconds: 3600
 
       - name: Check Current IAM Role
         run: aws sts get-caller-identity
