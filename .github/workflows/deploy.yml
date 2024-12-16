@@ -29,7 +29,7 @@ jobs:
     runs-on: ${{ vars.GH_RUNNER_TAG }} # define as an env var from UI for corresponding environment
     steps:
       - name: Configure AWS Creds
-        uses: aws-actions/configure-aws-credentials@main
+        uses: aws-actions/configure-aws-credentials@master
         # uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: ${{ inputs.GH_OIDC_IAM_ROLE }}
