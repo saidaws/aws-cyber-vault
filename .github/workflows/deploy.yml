@@ -27,12 +27,13 @@ concurrency:
 jobs:
   openidc:
     runs-on: ${{ vars.GH_RUNNER_TAG }} # define as an env var from UI for corresponding environment
+    environment: DEV-US-EAST-2
     steps:
       - name: Configure AWS Creds
         uses: aws-actions/configure-aws-credentials@v4
         with:
           audience: sts.amazonaws.com
-          aws-region: us-east-1
+          aws-region: us-east-2
           role-to-assume: ${{ inputs.GH_OIDC_IAM_ROLE }}
           # role-session-name: xom-role-session
           # role-duration-seconds: 3600
