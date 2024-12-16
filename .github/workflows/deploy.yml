@@ -35,8 +35,8 @@ jobs:
           audience: sts.amazonaws.com
           aws-region: us-east-2
           role-to-assume: ${{ vars.GH_OIDC_IAM_ROLE }}
-          # role-session-name: xom-role-session
-          # role-duration-seconds: 3600
+          role-session-name: xom-role-session
+          role-duration-seconds: 3600
 
       - name: Check Current IAM Role
         run: aws sts get-caller-identity
