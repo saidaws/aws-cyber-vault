@@ -32,7 +32,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           audience: sts.amazonaws.com
-          aws-region: us-east-2
+          aws-region: us-east-1
           role-to-assume: ${{ inputs.GH_OIDC_IAM_ROLE }}
           # role-session-name: xom-role-session
           # role-duration-seconds: 3600
