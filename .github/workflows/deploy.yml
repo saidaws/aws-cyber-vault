@@ -32,11 +32,9 @@ jobs:
       fail-fast: true
       matrix:
         include:
-          - environment: DEV-US-EAST-2
+          - environment: DEV
             region: us-east-2
-          - environment: TST-US-EAST-2
-            region: us-east-2
-          - environment: PRD-US-EAST-2
+          - environment: PRD
             region: us-east-2
     with:
       deploy: true
