@@ -25,25 +25,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # openidc:
-  #   runs-on: ${{ vars.GH_RUNNER_TAG }}
-  #   environment: dev
-  #   steps:
-  #     - name: Configure AWS Creds
-  #       uses: aws-actions/configure-aws-credentials@v4
-  #       with:
-  #         audience: sts.amazonaws.com
-  #         aws-region: us-east-2
-  #         role-to-assume: ${{ vars.GH_OIDC_IAM_ROLE }}
-  #         role-session-name: xom-role-session
-  #         role-duration-seconds: 3600
-
-  #     - name: Check Current IAM Role
-  #       run: aws sts get-caller-identity
-
   deploy:
     name: Progressive Deployment
-    # needs: openidc
     # uses: EMOrg-Prd/awsce-terraform-reusable-workflow/.github/workflows/terraform-reusable.yml@main
     uses: aws-samples/aws-terraform-reusable-workflow/.github/workflows/terraform-reusable.yml@v1.2.0
     strategy:
@@ -53,8 +36,8 @@ jobs:
         include:
           - environment: dev
             region: us-east-2
-          # - environment: prd
-          #   region: us-east-2
+          - environment: prd
+            region: us-east-2
     with:
       deploy: true
       tf-version: ${{ vars.TF_VERSION }}
