@@ -63,5 +63,6 @@ jobs:
       tf-workspace: HP-AWS-${{ vars.APP_NAME }}-${{ matrix.environment }}
       aws-region: "us-east-2"
       environment: ${{ matrix.environment }}
+      ref: v1.2.0
     secrets:
       tf-token: ${{ secrets.TF_TOKEN }}
