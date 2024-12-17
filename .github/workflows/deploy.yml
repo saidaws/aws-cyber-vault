@@ -36,8 +36,8 @@ jobs:
         include:
           - environment: dev
             region: us-east-2
-          - environment: prd
-            region: us-east-2
+          # - environment: prd
+          #   region: us-east-2
     with:
       deploy: true
       tf-version: ${{ vars.TF_VERSION }}
