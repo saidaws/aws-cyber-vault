@@ -1,7 +1,7 @@
 resource "aws_ram_resource_share" "this" {
   count                     = var.enable_resource_sharing ? 1 : 0
   allow_external_principals = true
-  name                      = "${var.environment}-lag-vault-share"
+  name                      = "${var.app_name}-lag-vault-share"
   permission_arns = [
     "arn:aws:ram::aws:permission/AWSRAMPermissionBackupVaultReadOnly",
   ]
