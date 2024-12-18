@@ -1,5 +1,5 @@
-module "backup_lag_vault" {
-  source                  = "./modules/backup-lag-vault"
+module "cyber_recovery_lag_vault" {
+  source                  = "./modules/cyber-recovery-lag-vault"
   environment             = var.environment
   app_name                = var.app_name
   cyberapp_principals     = var.cyberapp_principals
