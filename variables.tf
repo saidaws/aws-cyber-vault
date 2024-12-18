@@ -3,6 +3,11 @@ variable "region" {
   type        = string
 }
 
+variable "environment" {
+  type        = string
+  description = "Name of the environment"
+}
+
 variable "app_name" {
   type        = string
   default     = "cyber-recovery"
