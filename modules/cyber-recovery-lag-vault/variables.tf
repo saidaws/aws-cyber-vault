@@ -3,6 +3,12 @@ variable "environment" {
   description = "The environment where to deploy the solution"
 }
 
+variable "app_name" {
+  type        = string
+  default     = "cyber-recovery"
+  description = "The name of the solution app"
+}
+
 variable "cyberapp_principals" {
   type        = list(string)
   default     = []

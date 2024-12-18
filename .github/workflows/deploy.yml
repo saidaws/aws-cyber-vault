@@ -8,16 +8,16 @@ permissions:
 
 on:
   workflow_dispatch:
-  # pull_request:
-  #   paths:
-  #     - "**.tf*"
-  #     - ".github/workflows/deploy.yml"
-  # push:
-  #   branches:
-  #     - "main"
-  #   paths:
-  #     - "**.tf*"
-  #     - ".github/workflows/deploy.yml"
+  pull_request:
+    paths:
+      - "**.tf*"
+      - ".github/workflows/deploy.yml"
+  push:
+    branches:
+      - "main"
+    paths:
+      - "**.tf*"
+      - ".github/workflows/deploy.yml"
 
 concurrency:
   group: ${{ github.ref }}
@@ -26,16 +26,17 @@ concurrency:
 jobs:
   deploy:
     name: Progressive Deployment
-    uses: EMOrg-Prd/awsce-terraform-reusable-workflow/.github/workflows/terraform-reusable.yml@main
+    # uses: EMOrg-Prd/awsce-terraform-reusable-workflow/.github/workflows/terraform-reusable.yml@main
+    uses: aws-samples/aws-terraform-reusable-workflow/.github/workflows/terraform-reusable.yml@v1.2.0
     strategy:
       max-parallel: 1
       fail-fast: true
       matrix:
         include:
-          - environment: DEV
+          - environment: dev
             region: us-east-2
-          - environment: PRD
-            region: us-east-2
+          # - environment: prd
+          #   region: us-east-2
     with:
       deploy: true
       tf-version: ${{ vars.TF_VERSION }}
@@ -44,5 +45,6 @@ jobs:
       tf-workspace: HP-AWS-${{ vars.APP_NAME }}-${{ matrix.environment }}
       aws-region: "us-east-2"
       environment: ${{ matrix.environment }}
+      ref: v1.2.0
     secrets:
       tf-token: ${{ secrets.TF_TOKEN }}
