@@ -16,6 +16,7 @@ on:
     branches:
       - "main"
       - "deploy"
+      - "dev"
     paths:
       - "**.tf*"
       - ".github/workflows/deploy.yml"
