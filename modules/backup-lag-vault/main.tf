@@ -1,5 +1,5 @@
 resource "aws_backup_logically_air_gapped_vault" "this" {
-  name               = "${var.environment}-lag-vault"
+  name               = "${var.app_name}-lag-vault"
   max_retention_days = var.max_retention_days # (>= member backup vault)
   min_retention_days = var.min_retention_days # (<= member backup vault)
 }
