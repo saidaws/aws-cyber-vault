@@ -81,7 +81,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_backup_lag_vault"></a> [backup\_lag\_vault](#module\_backup\_lag\_vault) | ./modules/backup-lag-vault | n/a |
+| <a name="module_cyber_recovery_lag_vault"></a> [backup\_lag\_vault](#module\_backup\_lag\_vault) | ./modules/backup-lag-vault | n/a |
 
 ## Resources
 

@@ -1,8 +1,3 @@
-variable "region" {
-  description = "Region where to deploy the resources"
-  type        = string
-}
-
 variable "app_name" {
   type        = string
   default     = "cyber-recovery"

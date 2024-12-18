@@ -3,7 +3,7 @@ locals {
   # region = data.aws_region.this.name
 
   # tags = {
-  #   environment = var.environment
+  #   environment = var.app_name
   #   GitRepo     = "https://github.com/ExxonMobil/backup-lag-vault"
   # }
 }

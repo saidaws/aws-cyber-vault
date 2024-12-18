@@ -1,6 +1,7 @@
-variable "environment" {
+variable "app_name" {
   type        = string
-  description = "The environment where to deploy the solution"
+  default     = "cyber-recovery"
+  description = "The name of the solution app"
 }
 
 variable "cyberapp_principals" {

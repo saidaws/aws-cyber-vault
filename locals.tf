@@ -1,6 +1,6 @@
 locals {
   tags = {
-    environment = var.environment
-    GitRepo     = "https://github.com/ExxonMobil/backup-lag-vault"
+    app_name = var.app_name
+    GitRepo  = "https://github.com/EMOrg-Prd/aws-cyber-vault"
   }
 }
