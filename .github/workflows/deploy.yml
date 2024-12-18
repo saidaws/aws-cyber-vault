@@ -15,8 +15,7 @@ on:
   push:
     branches:
       - "main"
-      - "deploy"
-      - "dev"
+      - "refactor"
     paths:
       - "**.tf*"
       - ".github/workflows/deploy.yml"
